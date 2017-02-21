@@ -1,0 +1,1 @@
+select AVG(salary) from developers;

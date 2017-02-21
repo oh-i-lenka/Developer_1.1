@@ -1,0 +1,11 @@
+Alter table developers ADD SALARY INT;
+commit;
+update developers SET salary = 3000 where Name like 'B%';
+update developers SET salary = 4000 where Name like 'D%';
+update developers SET salary = 3020 where Name like 'L%';
+update developers SET salary = 5000 where Name like 'R%';
+update developers SET salary = 1500 where Name like 'I%';
+update developers SET salary = 4200 where Name like 'P%';
+update developers SET salary = 3256 where Name like 'K%';
+update developers SET salary = 6256 where Name like 'W%';
+commit;
