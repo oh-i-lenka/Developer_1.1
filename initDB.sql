@@ -36,8 +36,8 @@ ID   INT NOT NULL AUTO_INCREMENT,
 project VARCHAR (100) NOT NULL,
 proj_customers int ,
 proj_company int,
-company_FK foreign key (proj_company) references companies(id);
-customer_FK foreign key (proj_customers) references customers(id);
+foreign key (proj_company) references companies(id),
+foreign key (proj_customers) references customers(id),
 PRIMARY KEY (ID)
 );
 commit;
@@ -46,8 +46,8 @@ CREATE TABLE dev_skills(
 ID   INT NOT NULL AUTO_INCREMENT,
 DEVELOPER_ID INT  NOT NULL,
 SKILL_ID INT  NOT NULL,
-developer_FK foreign key (DEVELOPER_ID) references DEVELOPERS(id),
-skills_FK foreign key (SKILL_ID) references skills(id),
+foreign key (DEVELOPER_ID) references DEVELOPERS(id),
+foreign key (SKILL_ID) references skills(id),
 PRIMARY KEY (ID)
 );
 commit;
@@ -56,8 +56,8 @@ CREATE TABLE dev_project(
 ID   INT NOT NULL AUTO_INCREMENT,
 DEVELOPER_ID INT  NOT NULL,
 PROJECT_ID INT  NOT NULL,
-develop_FK foreign key (DEVELOPER_ID) references developers(id),
-project_FK foreign key (PROJECT_ID) references projects(id),
+foreign key (DEVELOPER_ID) references developers(id),
+foreign key (PROJECT_ID) references projects(id),
 PRIMARY KEY (ID)
 );
 commit;
