@@ -1,4 +1,5 @@
 INSERT INTO developers (NAME, LAST_NAME) VALUES ('Karl', 'Gauss');
+INSERT INTO developers (NAME, LAST_NAME) VALUES ('Daniel', 'Bernoulli');
 INSERT INTO developers (NAME, LAST_NAME) VALUES ('Leonardo', 'Fibonacci');
 INSERT INTO developers (NAME, LAST_NAME) VALUES ('Leonard', 'Euler');
 INSERT INTO developers (NAME, LAST_NAME) VALUES ('Pierre', 'Fermat');
@@ -6,6 +7,7 @@ INSERT INTO developers (NAME, LAST_NAME) VALUES ('Isaac', 'Newton');
 INSERT INTO developers (NAME, LAST_NAME) VALUES ('Rene', 'Descartes');
 INSERT INTO developers (NAME, LAST_NAME) VALUES ('Blaise', 'Pascal');
 INSERT INTO developers (NAME, LAST_NAME) VALUES ('Wilhelm', 'Leibniz');
+
 commit;
 
 INSERT INTO skills (skill) VALUES ('JAVA');
