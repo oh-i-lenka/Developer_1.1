@@ -1,1 +1,1 @@
-select AVG(salary) from developers;
+select AVG(salary) from developers where id in (select DEVELOPER_ID from dev_skills where skill_id = (select id from skills where skill like 'java')) ;
