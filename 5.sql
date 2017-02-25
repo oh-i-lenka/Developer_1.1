@@ -1,37 +1,8 @@
-DELIMITER //
+CREATE TEMPORARY TABLE IF NOT EXISTS min_sums
+SELECT proj_company AS comp, MIN(costs) AS sums
+FROM projects GROUP BY proj_company, proj_customers;
 
-CREATE PROCEDURE clients()
-BEGIN
-	DECLARE i INT DEFAULT 0;
-	DECLARE j INT DEFAULT 0;
-	DECLARE min_customer INT DEFAULT 0;
-	DECLARE max_cost INT DEFAULT 0;
-	DECLARE tempJ INT DEFAULT 0;
-	DECLARE temp_custom INT DEFAULT 0;
-	
-	SET j := (SELECT MAX(id) FROM customers);
-	SET i := (SELECT MAX(id) FROM companies);
-	SET max_cost := (SELECT MAX(Costs) FROM projects);
-	SET tempJ := j;
-	
-	WHILE i>0 DO
-		set min_customer := max_cost;
-		WHILE j>0 DO
-				SET temp_custom := (SELECT SUM(costs) FROM projects WHERE proj_customers = j AND proj_company = i);
-				if ( temp_custom < min_customer AND temp_custom != 0) then 
-						SET min_customer := temp_custom;
-						end if;
-							
-				set j := j-1;
-		END WHILE;
-		SELECT i;
-		SELECT min_customer;		
-		set i := i-1;
-		SET j := tempJ;
-	END WHILE;
-
-END //
-
-DELIMITER //
-
-CALL clients();
+SELECT companies.company, min_sums.sums, customers.customer FROM projects 
+INNER JOIN min_sums ON min_sums.comp = projects.proj_company AND min_sums.sums = projects.Costs  
+LEFT JOIN companies ON min_sums.comp = companies.id 
+LEFT JOIN customers ON customers.ID = projects.proj_customers;
